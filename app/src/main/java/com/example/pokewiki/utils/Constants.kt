@@ -7,4 +7,7 @@ object Constants {
     const val QUERY_LIMIT = "limit"
     const val QUERY_OFFSET = "offset"
     const val QUERY_POKEMON_NAME = "name"
+
+    const val OFFSET = 0
+    const val LIMIT = 20
 }
