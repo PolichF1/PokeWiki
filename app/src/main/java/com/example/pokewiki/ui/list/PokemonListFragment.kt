@@ -3,11 +3,18 @@ package com.example.pokewiki.ui.list
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import androidx.paging.LoadState
 import com.example.pokewiki.R
 import com.example.pokewiki.data.paging.PagingAdapter
 import com.example.pokewiki.databinding.FragmentPokemonListBinding
+import com.example.pokewiki.ui.load.ItemLoadStateAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class PokemonListFragment : Fragment(R.layout.fragment_pokemon_list) {
@@ -16,7 +23,7 @@ class PokemonListFragment : Fragment(R.layout.fragment_pokemon_list) {
     private val binding get() = _binding!!
 
     private val viewModel by viewModels<PokemonListViewModel>()
-    private lateinit var pagingAdapter: PagingAdapter
+    private val pagingAdapter by lazy { PagingAdapter() }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -27,17 +34,32 @@ class PokemonListFragment : Fragment(R.layout.fragment_pokemon_list) {
     }
     
     private fun onSetupRecyclerView() {
-        binding.pokemonsRV.apply { 
-            pagingAdapter = PagingAdapter()
-            adapter = pagingAdapter
+        binding.apply {
+            pokemonsRV.setHasFixedSize(true)
+            pokemonsRV.adapter = pagingAdapter.withLoadStateHeaderAndFooter(
+                header = ItemLoadStateAdapter { pagingAdapter.retry() },
+                footer = ItemLoadStateAdapter { pagingAdapter.retry() }
+            )
+            listRetryButton.setOnClickListener { pagingAdapter.retry() }
+        }
+        pagingAdapter.addLoadStateListener { loadState ->
+            binding.apply {
+                errorTextView.isVisible = loadState.source.refresh is LoadState.Error
+                listRetryButton.isVisible = loadState.source.refresh is LoadState.Error
+            }
         }
     }
-    
+
     private fun onSetupViewModel() {
-        viewModel.getPokemonPagingSource()
-        viewModel.pokemonPagingData.observe(viewLifecycleOwner) {
-            pagingAdapter.submitData(viewLifecycleOwner.lifecycle, it)
-            binding.pokemonsRV.visibility = View.VISIBLE
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.paging.collect{
+                pagingAdapter.submitData(it)
+            }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

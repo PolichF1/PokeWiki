@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">PokeWiki</string>
+
+    <string name="retry">Retry</string>
+    <string name="data_loading_error">Data loading error</string>
+    <string name="results_loading_failed">Results loading failed</string>
+    <string name="image_pokemon">Image Pokemon</string>
 </resources>

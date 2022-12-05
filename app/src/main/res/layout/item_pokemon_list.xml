@@ -1,41 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/cvPokemonList"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="20sp"
-    app:cardCornerRadius="25sp"
-    app:cardElevation="15sp">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/itemPokemonList"
+    <data>
+        <variable
+            name="pokemonResult"
+            type="com.example.pokewiki.data.model.PokemonResult" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvPokemonList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_margin="20sp"
+        app:cardCornerRadius="25sp"
+        app:cardElevation="15sp">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/imagePokemonItem"
-            android:layout_width="150sp"
-            android:layout_height="150sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@tools:sample/avatars"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/itemPokemonList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textPokemonItem"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imagePokemonItem"
-            android:hint="Pokemon name"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imagePokemonItem"
+                android:contentDescription="@string/image_pokemon"
+                android:pokemonImage="@{pokemonResult.pokemonImage}"
+                android:layout_width="150sp"
+                android:layout_height="150sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/avatars"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/textPokemonItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10sp"
+                android:ellipsize="marquee"
+                android:hint="Pokemon name"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:maxLines="1"
+                android:scrollHorizontally="true"
+                android:text="@{pokemonResult.name}"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/imagePokemonItem"
+                app:layout_constraintStart_toStartOf="@+id/imagePokemonItem"
+                app:layout_constraintTop_toBottomOf="@+id/imagePokemonItem" />
 
-</com.google.android.material.card.MaterialCardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>
