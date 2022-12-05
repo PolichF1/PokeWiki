@@ -12,9 +12,4 @@ data class PokemonResponse(
 data class PokemonResult(
     @field:SerializedName("name") val name: String? = null,
     @field:SerializedName("url") val url: String? = null
-) {
-    fun getPokemonImage(): String {
-        val index = url?.split("/".toRegex())?.dropLast(1)?.last()
-        return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/$index.png"
-    }
-}
+)

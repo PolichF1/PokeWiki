@@ -19,18 +19,4 @@ class PokemonListViewModel @Inject constructor(
 
     val paging = repository.getPokemonPaging().cachedIn(viewModelScope)
 
-
-
-//    private val _pokemonPagingData = MutableLiveData<PagingData<PokemonResponse.PokemonResult>>()
-//    val pokemonPagingData = _pokemonPagingData
-
-//    fun getPokemonPagingSource() {
-//        viewModelScope.launch {
-//            repository.getPokemonPaging()
-//                .collect{
-//                    _pokemonPagingData.value = it
-//                }
-//        }
-//    }
-
 }

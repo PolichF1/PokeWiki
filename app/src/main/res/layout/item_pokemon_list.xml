@@ -11,6 +11,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cvPokemonList"
+        android:navigate_to_pokemon_detail="@{pokemonResult.name}"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20sp"
@@ -25,7 +26,7 @@
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imagePokemonItem"
                 android:contentDescription="@string/image_pokemon"
-                android:pokemonImage="@{pokemonResult.pokemonImage}"
+                android:pokemonImage="@{pokemonResult.url}"
                 android:layout_width="150sp"
                 android:layout_height="150sp"
                 app:layout_constraintEnd_toEndOf="parent"

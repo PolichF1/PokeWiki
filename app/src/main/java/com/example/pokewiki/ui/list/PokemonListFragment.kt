@@ -41,13 +41,14 @@ class PokemonListFragment : Fragment(R.layout.fragment_pokemon_list) {
                 footer = ItemLoadStateAdapter { pagingAdapter.retry() }
             )
             listRetryButton.setOnClickListener { pagingAdapter.retry() }
-        }
-        pagingAdapter.addLoadStateListener { loadState ->
-            binding.apply {
+
+            pagingAdapter.addLoadStateListener { loadState ->
+                progressBar.isVisible = loadState.source.refresh is LoadState.Loading
                 errorTextView.isVisible = loadState.source.refresh is LoadState.Error
                 listRetryButton.isVisible = loadState.source.refresh is LoadState.Error
             }
-        }
+
+            }
     }
 
     private fun onSetupViewModel() {

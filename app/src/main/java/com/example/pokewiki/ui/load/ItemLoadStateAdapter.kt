@@ -22,8 +22,12 @@ class ItemLoadStateAdapter(private val retry: () -> Unit) : LoadStateAdapter<Ite
         fun bind(loadState: LoadState) {
             binding.apply {
                 progressBar.isVisible = loadState is LoadState.Loading
-                retryLoadButton.isVisible = loadState !is LoadState.Loading
-                errorTextView.isVisible = loadState !is LoadState.Loading
+                retryLoadButton.isVisible = loadState is LoadState.Error
+                errorTextView.isVisible = loadState is LoadState.Error
+
+                if (loadState is LoadState.Error) {
+                    errorTextView.text = loadState.error.localizedMessage
+                }
             }
         }
     }
