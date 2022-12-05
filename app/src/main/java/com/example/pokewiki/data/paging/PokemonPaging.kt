@@ -11,6 +11,6 @@ import kotlinx.coroutines.flow.Flow
 interface PokemonPaging {
 
     fun getPokemonPaging(): PagingSource<Int, PokemonResult>
-    fun getPokemonDetails(queryName: String): Flow<ApiResponse<SinglePokemonResponse>>
+    suspend fun getPokemonDetails(queryName: String): Flow<ApiResponse<SinglePokemonResponse>>
 
 }

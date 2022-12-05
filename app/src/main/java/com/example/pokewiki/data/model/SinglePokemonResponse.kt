@@ -5,8 +5,8 @@ import com.google.gson.annotations.SerializedName
 data class SinglePokemonResponse(
     @field:SerializedName("id") val id: Int,
     @field:SerializedName("name") val name: String,
-    @field:SerializedName("height") val height: Int? = null,
-    @field:SerializedName("weight") val weight: Int? = null,
+    @field:SerializedName("height") val height: Int,
+    @field:SerializedName("weight") val weight: Int,
     @field:SerializedName("sprites") val sprites: Sprites? = null
 )
 

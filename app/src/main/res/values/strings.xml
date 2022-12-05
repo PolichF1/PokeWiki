@@ -5,4 +5,9 @@
     <string name="data_loading_error">Data loading error</string>
     <string name="results_loading_failed">Results loading failed</string>
     <string name="image_pokemon">Image Pokemon</string>
+
+    <string name="pokemon_number_format">#%03d</string>
+    <string name="pokemon_format_weight">%.1f kg</string>
+    <string name="pokemon_format_height">%d cm</string>
+
 </resources>

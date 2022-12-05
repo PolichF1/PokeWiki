@@ -49,10 +49,14 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
             pokemonDetailsImage.load(pokemonImage) {
                 crossfade(200)
             }
-            pokemonNumberTextView.text = formatId(data.id)
+            pokemonNumberTextView.text = getString(R.string.pokemon_number_format, data.id)
             pokemonDetailsName.text = data.name
+            heightDetail.text = getString(R.string.pokemon_format_height, (data.height.times(10)))
+            weightDetail.text = getString(R.string.pokemon_format_weight, (data.weight.div(10.0)))
+
         }
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

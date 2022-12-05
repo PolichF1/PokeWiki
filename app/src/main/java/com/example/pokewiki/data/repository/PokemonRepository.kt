@@ -9,5 +9,5 @@ import kotlinx.coroutines.flow.Flow
 interface PokemonRepository {
 
     fun getPokemonPaging(): Flow<PagingData<PokemonResult>>
-    fun getPokemonDetails(queryName: String) : Flow<ApiStates<SinglePokemonResponse>>
+    suspend fun getPokemonDetails(queryName: String) : Flow<ApiStates<SinglePokemonResponse>>
 }

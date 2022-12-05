@@ -54,7 +54,7 @@ class PokemonPagingImpl @Inject constructor(
         }
     }
 
-    override fun getPokemonDetails(queryName: String): Flow<ApiResponse<SinglePokemonResponse>> {
+    override suspend fun getPokemonDetails(queryName: String): Flow<ApiResponse<SinglePokemonResponse>> {
         return flow {
             try {
                 val response = apiService.getSinglePokemonResponse(queryName)

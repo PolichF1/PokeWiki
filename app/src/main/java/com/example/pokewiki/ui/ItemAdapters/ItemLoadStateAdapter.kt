@@ -1,4 +1,4 @@
-package com.example.pokewiki.ui.load
+package com.example.pokewiki.ui.ItemAdapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

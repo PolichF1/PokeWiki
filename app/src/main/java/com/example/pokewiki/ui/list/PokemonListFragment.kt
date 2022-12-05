@@ -10,10 +10,8 @@ import androidx.paging.LoadState
 import com.example.pokewiki.R
 import com.example.pokewiki.data.paging.PagingAdapter
 import com.example.pokewiki.databinding.FragmentPokemonListBinding
-import com.example.pokewiki.ui.load.ItemLoadStateAdapter
+import com.example.pokewiki.ui.ItemAdapters.ItemLoadStateAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint

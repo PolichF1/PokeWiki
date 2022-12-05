@@ -23,7 +23,7 @@ class PokemonRepositoryImpl @Inject constructor(
             pagingSourceFactory = { pokemonPaging.getPokemonPaging() }
         ).flow
 
-    override fun getPokemonDetails(queryName: String): Flow<ApiStates<SinglePokemonResponse>> =
+    override suspend fun getPokemonDetails(queryName: String): Flow<ApiStates<SinglePokemonResponse>> =
         flow {
             emit(ApiStates.Loading())
             when (val response = pokemonPaging.getPokemonDetails(queryName).first()) {
