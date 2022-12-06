@@ -4,7 +4,6 @@ import com.example.pokewiki.data.paging.PokemonPaging
 import com.example.pokewiki.data.paging.PokemonPagingImpl
 import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 
