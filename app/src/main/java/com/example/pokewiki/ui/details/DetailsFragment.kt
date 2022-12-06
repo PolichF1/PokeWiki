@@ -12,6 +12,7 @@ import coil.load
 import com.example.pokewiki.R
 import com.example.pokewiki.data.api.ApiStates
 import com.example.pokewiki.data.model.SinglePokemonResponse
+import com.example.pokewiki.data.model.TypesItem
 import com.example.pokewiki.databinding.FragmentDetailsBinding
 import com.example.pokewiki.utils.formatId
 import dagger.hilt.android.AndroidEntryPoint
@@ -53,7 +54,20 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
             pokemonDetailsName.text = data.name
             heightDetail.text = getString(R.string.pokemon_format_height, (data.height.times(10)))
             weightDetail.text = getString(R.string.pokemon_format_weight, (data.weight.div(10.0)))
+            pokemonTypeOne.text = data.types[0].type.name
+            setPokemonTypes(data.types)
 
+        }
+    }
+
+    private fun setPokemonTypes(types: List<TypesItem>) {
+        with(binding) {
+            if (types.size > 1) {
+                pokemonTypeTwo.text = types[1].type.name
+                pokemonTypeTwo.visibility = View.VISIBLE
+            } else {
+                pokemonTypeTwo.visibility = View.GONE
+            }
         }
     }
 

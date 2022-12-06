@@ -84,6 +84,36 @@
                 android:hint="PIKA"/>
 
             <TextView
+                android:id="@+id/pokemonTypeOne"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_pokemon_types_round"
+                android:paddingHorizontal="15sp"
+                android:paddingVertical="4dp"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/pokemonTypeTwo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pokemonDetailsName"
+                tools:text="Poison" />
+
+            <TextView
+                android:id="@+id/pokemonTypeTwo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_pokemon_types_round"
+                android:paddingHorizontal="15sp"
+                android:paddingVertical="4dp"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/pokemonTypeOne"
+                app:layout_constraintTop_toBottomOf="@+id/pokemonDetailsName"
+                tools:text="Poison" />
+
+            <TextView
                 android:id="@+id/basicInfoTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

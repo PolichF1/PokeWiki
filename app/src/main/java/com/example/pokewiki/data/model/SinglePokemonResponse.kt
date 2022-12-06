@@ -3,6 +3,7 @@ package com.example.pokewiki.data.model
 import com.google.gson.annotations.SerializedName
 
 data class SinglePokemonResponse(
+    @field:SerializedName("types") val types: List<TypesItem>,
     @field:SerializedName("id") val id: Int,
     @field:SerializedName("name") val name: String,
     @field:SerializedName("height") val height: Int,
@@ -10,6 +11,8 @@ data class SinglePokemonResponse(
     @field:SerializedName("sprites") val sprites: Sprites? = null
 )
 
+
+//Pokemon image
 data class Sprites(
     @field:SerializedName("back_default") val backDefault: String? = null,
     @field:SerializedName("back_female") val backFemale: Any? = null,
@@ -47,4 +50,19 @@ data class Home(
     @field:SerializedName("front_default") val frontDefault: String? = null,
     @field:SerializedName("front_female") val frontFemale: Any? = null,
     @field:SerializedName("front_shiny") val frontShiny: String? = null
+)
+
+
+//Pokemon type
+data class TypesItem(
+
+    @field:SerializedName("slot") val slot: Int? = null,
+    @field:SerializedName("type") val type: Type
+
+)
+
+data class Type(
+
+    @field:SerializedName("name") val name: String? = null,
+    @field:SerializedName("url") val url: String? = null
 )
