@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10sp"
                 android:ellipsize="marquee"
-                android:hint="Pokemon name"
+                android:hint="@string/pokemon_name"
                 android:marqueeRepeatLimit="marquee_forever"
                 android:maxLines="1"
                 android:scrollHorizontally="true"

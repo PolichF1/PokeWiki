@@ -47,10 +47,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:hint="1234"/>
+                android:hint="@string/pokemon_number"/>
 
             <ImageView
                 android:id="@+id/pokemonDetailsImage"
+                android:contentDescription="@string/pokemon_details_image"
                 android:layout_width="200sp"
                 android:layout_height="200sp"
                 android:layout_marginStart="10dp"
@@ -81,7 +82,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/pokemonDetailsImage"
-                android:hint="PIKA"/>
+                android:hint="@string/pokemon_name"/>
 
             <TextView
                 android:id="@+id/pokemonTypeOne"
@@ -117,7 +118,7 @@
                 android:id="@+id/basicInfoTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="info"
+                android:text="@string/info"
                 android:textSize="25sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -148,7 +149,7 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="10dp"
-                        android:text="height"
+                        android:text="@string/height"
                         android:textColor="@color/white"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -175,7 +176,7 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="10dp"
-                        android:text="weight"
+                        android:text="@string/weight"
                         android:textColor="@color/white"
                         android:textSize="20sp"
                         android:textStyle="bold" />

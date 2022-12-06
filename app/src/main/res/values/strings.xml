@@ -4,7 +4,14 @@
     <string name="retry">Retry</string>
     <string name="data_loading_error">Data loading error</string>
     <string name="results_loading_failed">Results loading failed</string>
+
     <string name="image_pokemon">Image Pokemon</string>
+    <string name="pokemon_details_image">Pokemon details image</string>
+    <string name="pokemon_number">pokemon number</string>
+    <string name="pokemon_name">pokemon name</string>
+    <string name="info">Info</string>
+    <string name="weight">Weight</string>
+    <string name="height">Height</string>
 
     <string name="pokemon_number_format">#%03d</string>
     <string name="pokemon_format_weight">%.1f kg</string>
